@@ -1,0 +1,29 @@
+{% extends "slushpool/components/slushpool_tab.jinja" %}
+{% set tab = 'settings' %}
+
+
+{% block content %}
+    <style>
+    </style>
+
+    <div class="card">
+        <h1>{{ _("Clear Slush Pool Data") }}</h1>
+        <br/>
+        <div class="note">
+            {{ _("- Payout addresses will no longer be linked to Slush Pool") }}<br/>
+            {{ _("- 'Slush Pool' will be removed from the left nav") }}<br/>
+        </div>
+        <br/>
+
+        <form action="{{ url_for(service.get_blueprint_name() + '.remove') }}" method="POST" role="form">
+            <input type="hidden" class="csrf-token" name="csrf_token" value="{{ csrf_token() }}"/>
+            <div class="row">
+                <button type="submit" class="btn danger">{{ _("Clear Slush Pool Data") }}</button>
+            </div>
+        </form>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+
+{% endblock %}

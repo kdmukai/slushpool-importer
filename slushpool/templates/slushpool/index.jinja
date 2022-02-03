@@ -1,0 +1,130 @@
+{% extends "base.jinja" %}
+
+{% block main %}
+    <style>
+        .tagline {
+            font-style: italic;
+            font-size: 1.1em;
+            text-align: center;
+            color: #aaa;
+            padding-left: 4em;
+            padding-right: 4em;
+        }
+
+        .button_wide {
+            text-decoration: none;
+            color: white;
+        }
+        .button_wide:hover {
+            color: white;
+        }
+        .big_option {
+            display: inline-block;
+            width: 12em;
+            padding: 1em;
+            vertical-align: middle;
+            height: 3.5em;
+            border: 4px solid var(--cmap-border);
+            border-radius: 0.5em;
+            background-color: var(--cmap-bg-lighter);
+            font-size: 1.5em;
+            margin: 1em;
+            position: relative;
+        }
+        .big_option:hover {
+            background-color: var(--cmap-bg-lightest);
+            border: 4px solid var(--main-color);
+            cursor: pointer;
+        }
+
+        .big_option_text {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .highlights {
+            margin-top: 2em;
+            margin-bottom: 1.5em;
+        }
+
+        .show_list_bullet {
+            margin-top: 0.5em;
+            display: inline-block;
+            width: auto;
+        }
+        .show_list_bullet li {
+            text-align: left;
+            list-style-type: disc;
+            line-height: 1.7em;
+        }
+
+        .plus_sign {
+            font-size: 3em;
+            color: #ccc;
+            vertical-align: text-bottom;
+        }
+
+        .faq {
+            max-width: 40em;
+            margin: auto;
+            margin-top: 4em;
+            border-top: 1px solid #666;
+            padding-top: 2em;
+            font-size: 0.9em;
+            text-align: left;
+        }
+        .faq_q {
+            margin-top: 1em;
+            font-weight: bold;
+            font-style: italic;
+        }
+        .faq_a {
+        }
+    </style>
+    <img src="{{ url_for(service.id +'_endpoint' + '.static', filename=service.logo) }}" width="300"/>
+    <div class="card center" style="width: auto; margin: 40px;">
+
+        <div>
+            <h1>Import your Slush Pool payout history!</h1>
+        </div>
+
+        <span class="big_option" onclick="location.href='{{ url_for(service.id +'_endpoint.upload') }}';">
+            <div class="big_option_text">
+                Begin
+            </div>
+        </span>
+
+        <div class="highlights">
+            <img src="{{ url_for(service.id +'_endpoint' + '.static', filename=service.icon) }}" width="50"/>
+            <span class="plus_sign">+</span>
+            <img src="{{ url_for('static', filename='img/ghost_3d.png') }}" width="50"/><br/>
+            <div class="show_list_bullet">
+                <li>Slush Pool UTXOs marked in your Specter wallet
+                <li>View all your payouts in the Slush Pool tab
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq_q">Can Specter automatically send my next payout address to Slush Pool?</div>
+            <div class="faq_a">
+                No. The Slush Pool API does not allow any interactions with payout addresses. You can't even retrieve your payout history through the API; you have to download the CSV yourself.
+            </div>
+
+            <div class="faq_q">Which aspects of my Slush Pool account will Specter be able to control?</div>
+            <div class="faq_a">
+                None! This is not actually an integration with Slush Pool. It's literally just parsing your payout history CSV and marking any payout addresses that Specter recognizes.
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script>
+    </script>
+{% endblock %}

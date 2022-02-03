@@ -1,0 +1,47 @@
+{% extends "slushpool/components/slushpool_tab.jinja" %}
+{% block title %}Upload Payout History{% endblock %}
+{% set tab = 'upload' %}
+{% block content %}
+    <style>
+        .steps {
+            margin: auto;
+            margin-top: 1em;
+            text-align: left;
+            margin-bottom: 1em;
+        }
+    </style>
+
+    <div class="card" style="text-align: center;">
+        <h1>Instructions</h1>
+
+        <div class="steps">
+            1. Sign into your Slush Pool account<br/>
+            2. Go to History / Payouts History / Bitcoin<br/>
+            3. Export with only "Payouts" selected, CSV format:<br/>
+        </div>
+
+        <img src="{{ url_for(service.id +'_endpoint' + '.static', filename='slushpool/img/payouts_export.png') }}" width="400"/>
+
+        <div class="steps">
+            4. Download and unzip the report<br/>
+            5. Upload the btc_payouts.csv:
+        </div>
+
+        <form method="post" enctype="multipart/form-data">
+            <input type="hidden" class="csrf-token" name="csrf_token" value="{{ csrf_token() }}"/>
+            <input type="file" name="csv_file" id="csv_file_id" accept="text/csv"><br/>
+            <br/>
+            <button style="margin: auto;" type="submit" class="btn">{{ _('Upload CSV') }}</button>
+        </form>
+
+    </div>
+
+
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script>
+    </script>
+{% endblock %}

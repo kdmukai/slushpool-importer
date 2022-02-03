@@ -1,0 +1,19 @@
+{% extends "base.jinja" %}
+{% block main %}
+    <style>
+        .service_logo {
+            margin-bottom: 1em;
+        }
+        .content_block {
+            margin-top: 2em;
+        }
+    </style>
+    <img class="service_logo" src="{{ url_for(service.id +'_endpoint' + '.static', filename=service.logo) }}" width="300"/>    
+    {% from 'slushpool/components/slushpool_menu.jinja' import slushpool_menu with context %}
+    {{ slushpool_menu(tab) }}
+    
+    <div class="content_block">
+        {% block content %}
+        {% endblock %}
+    </div>
+{% endblock %}
