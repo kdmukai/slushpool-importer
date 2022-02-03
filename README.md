@@ -1,3 +1,5 @@
+<img src="slushpool/static/slushpool/img/slushpool_logo.png">
+
 # Slush Pool Importer for Specter Desktop
 
 This is an add-on to Specter Desktop that leverages Specter's extensions mechanism to add external tools and 3rd party services.
