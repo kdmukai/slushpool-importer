@@ -8,10 +8,6 @@ from flask_login import login_required
 from .service import SlushpoolService
 
 
-"""
-    Empty placeholder just so the dummyservice/static folder can be wired up to retrieve its img
-"""
-
 logger = logging.getLogger(__name__)
 
 slushpool_endpoint = SlushpoolService.blueprint

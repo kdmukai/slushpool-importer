@@ -12,7 +12,7 @@ class SlushpoolService(Service):
     logo = "slushpool/img/slushpool_logo.png"
     desc = "Import your mining rewards history into Specter"
     has_blueprint = True
-    blueprint_module = "slushpool.controller"
+    blueprint_module = "kdmukai.specterext.slushpool.controller"
     devstatus = devstatus_beta
 
     # TODO: As more Services are integrated, we'll want more robust categorization and sorting logic
